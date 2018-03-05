@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="row">
+      <div class="col">
+        <section>
+          <header class="header">
+            <div class="row">
+              <div class="col-md-2">
+
+              </div>
+              <div class="col-md-10">
+
+              </div>
+            </div>
+
+          </header>
+        </section>
+
+        <section class="main">
+
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Títulos</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let titulo of titulos">
+                <th scope="row">{{titulo.nomeTitulo}}</th>
+                <td>
+                  <button type="button" class="btn btn-danger" (click)="deleteTitulo(titulo)"><i class="fa fa-trash"></i></button>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </section>
+      </div>
+    </div>
+

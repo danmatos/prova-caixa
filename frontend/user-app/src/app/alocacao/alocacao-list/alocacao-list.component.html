@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <section>
+        <header class="header">
+          <div class="row">
+            <div class="col-md-4">
+              <h2>Alocações</h2>
+
+            </div>
+            <div class="col-md-8">
+
+            </div>
+          </div>
+
+        </header>
+      </section>
+
+      <section class="main">
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Departamento</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let alocacao of alocacoes">
+              <th scope="row">{{alocacao.nomeAlocacao}}</th>
+              <td>
+                <button type="button" class="btn btn-danger" (click)="deleteAlocacao(alocacao)"
+                        data-toggle="tooltip"  data-placement="bottom" title="Excluir Alocação"><i class="fa fa-trash"></i></button>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </section>
+    </div>
+  </div>
+

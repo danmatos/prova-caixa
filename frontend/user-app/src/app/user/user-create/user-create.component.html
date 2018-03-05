@@ -1,0 +1,94 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <section>
+        <form novalidate [formGroup]="userForm" (ngSubmit)="onSubmit()">
+          <fieldset>
+            <div class="form-group">
+              <label>Nome</label>
+              <input type="text"
+                     class="form-control"
+                     formControlName="nomeColaborador">
+            </div>
+
+            <div class="form-group">
+              <img *ngIf="imgAvatar != ''" width="50" height="70" [src]="domSanitizer.bypassSecurityTrustUrl(imgAvatar)" />
+              <label for="avatarColaborador">Avatar</label>
+              <input type="file" class="form-control" id="avatarColaborador" (change)="onFileChange($event)" #fileInput>
+              <button type="button" class="btn btn-sm bn-defalut" (click)="clearFile()">Limpar</button>
+            </div>
+
+            <div class="form-row">
+              <div class="col md-4 mb-3">
+                <label>Alocação</label>
+                <select class="form-control" id="alocacao" formControlName="alocacao">
+                  <option *ngFor="let alocacao of alocacoes"
+                          [ngValue]="alocacao">{{alocacao.nomeAlocacao}}</option>
+                </select>
+              </div>
+              <div class="col md-4 mb-3">
+                  <label>Título</label>
+                  <select class="form-control" id="titulo" formControlName="titulo">
+                    <option *ngFor="let titulo of titulos"
+                            [ngValue]="titulo">{{titulo.nomeTitulo}}</option>
+                  </select>
+              </div>
+              <div class="col md-4 mb-3">
+                  <label>Competências</label>
+                  <select multiple class="form-control" id="competencia" formControlName="competencias">
+                    <option *ngFor="let competencia of competencias"
+                            [ngValue]="competencia">{{competencia.nomeCompetencia}}</option>
+                  </select>
+              </div>
+            </div>
+            <hr />
+            <div class="form-group">
+              <label>Descrição</label>
+              <input type="text"
+                     class="form-control"
+                     formControlName="descricaoColaborador">
+            </div>
+            <div class="form-group">
+                <label>Endereço</label>
+                <input type="text"
+                       class="form-control"
+                       formControlName="enderecoColaborador">
+              </div>
+
+            <div class="form-group">
+              <label>Contatos</label>
+              <button type="button" class="btn btn-default" (click)="adicionarContato()">Novo</button>
+              <table *ngIf="listaContatos.length >0">
+                <tbody >
+                  <tr *ngFor="let contato of listaContatos">
+                    <td><i class="fa {{contato.icone}}"></i></td>
+                    <td>
+                      <select class="form-control" id="tipoContato" >
+                      <option *ngFor="let tipo of tiposContato"
+                              [ngValue]="tipo.nomeTipo"  >{{tipo.nomeTipo}}</option>
+                    </select>
+
+
+
+                    </td>
+                    <td><input type="text"
+                               class="form-control"
+                               ([ngModel])="contato.numeroContato"></td>
+                    <td><i class="fa fa-trash" (click)="excluirContato($index)"></i></td>
+                  </tr>
+                </tbody>
+              </table>
+
+            </div>
+
+
+            </fieldset>
+
+            <button type="submit" class="btn btn-primary" [disabled]="!userForm.valid">Salvar</button>
+            <button type="button" class="btn btn-warning" (click)="redirectUserPage()">Cancelar</button>
+            <pre>{{userForm.value | json}}</pre>
+        </form>
+      </section>
+    </div>
+  </div>
+</div>

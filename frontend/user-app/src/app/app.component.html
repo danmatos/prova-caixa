@@ -1,0 +1,19 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a routerLink="/user" class="navbar-brand" href="#">Colaboradores</a>
+    <a routerLink="/alocacoes" class="navbar-brand" href="#">Alocações</a>
+    <a routerLink="/titulos" class="navbar-brand" href="#">Títulos</a>
+    <a routerLink="/competencias" class="navbar-brand" href="#">Competências</a>
+    <div class="collapse navbar-collapse" id="navbarNav"></div>
+    <form class="form-inline">
+        <button routerLink="/user/create" class="nav-link" type="button" class="btn btn-light"
+                data-toggle="tooltip"  data-placement="bottom" title="Novo Colaborador"><i class="fa fa-user-plus"></i></button>
+        <button routerLink="/alocacao/adicionar" class="nav-link" type="button" class="btn btn-light"
+                data-toggle="tooltip"  data-placement="bottom" title="Nova Alocação"><i class="fa fa-building"></i></button>
+        <button routerLink="/titulo/novo" class="nav-link" type="button" class="btn btn-light"
+                data-toggle="tooltip"  data-placement="bottom" title="Novo Título"><i class="fa fa-users"></i></button>
+        <button routerLink="competencia/novo" class="nav-link" type="button" class="btn btn-light"
+                data-toggle="tooltip"  data-placement="bottom" title="Nova Competência"><i class="fa fa-tasks"></i></button>
+    </form>
+  </nav>
+
+  <router-outlet></router-outlet>

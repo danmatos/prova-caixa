@@ -1,0 +1,29 @@
+<div class="card-deck">
+
+  <div class="card">
+    <i class="fa fa-aconut"></i>
+    <div class="cardbody">
+        <h5 style="align-content: right">{{user.nomeColaborador}}</h5>
+        <p> <img *ngIf="imgAvatar != ''" width="50" height="70" [src]="domSanitizer.bypassSecurityTrustUrl(imgAvatar)" /></p>
+        <p>{{user.alocacao.nomeAlocacao}} - {{user.titulo.nomeTitulo}}</p>
+        <hr />
+        <p>{{user.descricaoColaborador}}</p>
+        <hr />
+        <p ([ngModel])="displayCompetencias">{{displayCompetencias}}</p>
+        <p *ngFor="let contato of user.contatos">{{contato.tipoContato}} - {{contato.numeroContato}}</p>
+        <p><i class="fa fa-map-marker"> {{user.enderecoColaborador}}</i></p>
+    </div>
+    <div class="card-footer">
+      <div class="btn-group btn-group-toggle" style="float: right" data-toggle="buttons">
+        <button type="button" class="btn btn-dark "(click)="redirectUserPage(user)"
+                data-toggle="tooltip" data-placement="bottom"
+                title="Voltar"><i class="fa fa-arrow-left"></i></button>
+        <button type="button" class="btn btn-dark "(click)="editUserPage(user)"
+                data-toggle="tooltip" data-placement="bottom"
+                title="Editar Colaborador"><i class="fa fa-edit"></i></button>
+        <button type="button" class="btn btn-dark" (click)="deleteUser(user)"
+                data-toggle="tooltip" data-placement="bottom"
+                title="Excluir Colaborador"><i class="fa fa-trash"></i></button>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,57 @@
+<!--<div class="container">
+  <div class="row">
+    <div class="col">
+      <section>
+        <header class="header">
+          <div class="row" id="principal">
+            <div class="col-md-4">
+              <h2>Colaboradores</h2>
+            </div>
+            <!--<div class="col-md-6">
+              <input type="text"
+                     class="form-control"
+                     [(ngModel)]="filtro">
+              <button type="button"
+                      class="btn btn-primary"
+                      (click)="pesquisar()"
+                      ><i class="fa fa-search"></i></button>
+            </div> -->
+          <!--</div>
+        </header>
+      </section>
+      <section class="main">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Título</th>
+              <th>Alocação</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of users">
+              <th scope="row">{{user.nomeColaborador}}</th>
+              <td>{{user.titulo !== null ? user.titulo.nomeTitulo : ""}}</td>
+              <td>{{user.alocacao !== null ? user.alocacao.nomeAlocacao : ""}}</td>
+              <td>
+                <button type="button" class="btn btn-dark" (click)="viewUserPage(user)"
+                        data-toggle="tooltip"  data-placement="bottom" title="Visualizar"><i class="fa fa-eye"></i></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+  </div>-->
+<div class="row">
+  <div *ngFor="let user of users">
+    <div class="card-deck">
+      <div class="card-body">
+          <h5 class="card-title"><a data-toggle="tooltip"  data-placement="bottom" title="Visualizar" (click)="viewUserPage(user)">{{user.nomeColaborador}}</a></h5>
+          <p class="card-text"> {{user.titulo.nomeTitulo}}</p>
+          <p class="card-text"> {{user.alocacao.nomeAlocacao}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+

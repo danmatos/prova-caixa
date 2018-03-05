@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row">
+      <div class="col">
+        <section>
+          <header class="header">
+            <div class="row">
+              <div class="col-md-2">
+
+              </div>
+              <div class="col-md-10">
+
+              </div>
+            </div>
+
+          </header>
+        </section>
+
+        <section class="main">
+
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Competências</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let competencia of competencias">
+                <th scope="row">{{competencia.nomeCompetencia}}</th>
+                <td>
+                  <button type="button" class="btn btn-danger" (click)="deleteCompetencia(competencia)"
+                          data-toggle="tooltip"  data-placement="bottom" title="Excluir Competência"><i class="fa fa-trash"></i></button>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </section>
+      </div>
+    </div>
+

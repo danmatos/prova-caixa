@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="row">
+      <div class="col">
+        <section>
+          <form novalidate [formGroup]="competenciaForm" (ngSubmit)="onSubmit()">
+            <fieldset>
+              <div class="form-group">
+                <label>Nome</label>
+                <input type="text"
+                       class="form-control"
+                       formControlName="nomeCompetencia">
+              </div>
+              </fieldset>
+
+              <button type="submit" class="btn btn-primary" [disabled]="!competenciaForm.valid">Salvar</button>
+              <button type="button" class="btn btn-warning" (click)="redirectCompetenciasPage()">Cancelar</button>
+              <!--<pre>{{userForm.value | json}}</pre>-->
+          </form>
+        </section>
+      </div>
+    </div>
+  </div>
